@@ -1,19 +1,12 @@
-# Flowise
+<p align="center"><img src="logo.png" alt="flowise" width="120"></p>
 
-<p align="center"><img src="logo.png" alt="Flowise" width="120"></p>
-
-
-[![Maintained by StackBlaze](https://img.shields.io/badge/maintained%20by-StackBlaze-blue)](https://stackblaze.com)
-[![Weekly Updates](https://img.shields.io/badge/updates-weekly-green)](https://github.com/stackblaze-templates/flowise/actions)
-[![License](https://img.shields.io/github/license/stackblaze-templates/flowise)](LICENSE)
+# Flowise [![Maintained by StackBlaze](https://img.shields.io/badge/maintained%20by-StackBlaze-blue)](https://stackblaze.com) [![Weekly Updates](https://img.shields.io/badge/updates-weekly-green)](https://github.com/stackblaze-templates/flowise/actions) [![License](https://img.shields.io/github/license/stackblaze-templates/flowise)](LICENSE) [![Deploy on StackBlaze](https://img.shields.io/badge/Deploy%20on-StackBlaze-orange)](https://stackblaze.com)
 
 A low-code LLM app builder. Drag-and-drop UI to build customized LLM orchestration flows, chatbots, and AI agents.
 
 > **Credits**: Built on [Flowise](https://flowiseai.com) by [FlowiseAI](https://github.com/FlowiseAI). All trademarks belong to their respective owners.
 
 ## Deploy on StackBlaze
-
-[![Deploy on StackBlaze](https://img.shields.io/badge/Deploy%20on-StackBlaze-orange)](https://stackblaze.com)
 
 This template includes a `stackblaze.yaml` for one-click deployment on [StackBlaze](https://stackblaze.com).
 

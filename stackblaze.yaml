@@ -1,0 +1,36 @@
+databases:
+  - name: flowise-db
+    databaseName: flowise
+    user: flowise
+
+services:
+  - type: web
+    name: flowise
+    runtime: docker
+    plan: starter
+    autoDeploy: false
+    envVars:
+      - key: DATABASE_TYPE
+        value: postgres
+      - key: DATABASE_HOST
+        fromDatabase:
+          name: flowise-db
+          property: host
+      - key: DATABASE_PORT
+        fromDatabase:
+          name: flowise-db
+          property: port
+      - key: DATABASE_NAME
+        fromDatabase:
+          name: flowise-db
+          property: database
+      - key: DATABASE_USER
+        fromDatabase:
+          name: flowise-db
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: flowise-db
+          property: password
+      - key: FLOWISE_SECRETKEY_OVERWRITE
+        generateValue: true

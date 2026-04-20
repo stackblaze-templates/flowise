@@ -99,6 +99,27 @@ flowchart LR
 
 ---
 
+## Security & Production Configuration
+
+Before deploying to production, you **must** configure the following environment variables:
+
+| Variable | Description |
+|---|---|
+| `DATABASE_PASSWORD` | PostgreSQL password. Use a strong, randomly generated value. |
+| `FLOWISE_SECRETKEY_OVERWRITE` | Secret key used to encrypt stored credentials. Generate with `openssl rand -hex 32`. |
+
+For local development, copy `.env.example` to `.env` and fill in the values:
+
+```bash
+cp .env.example .env
+# Edit .env and set strong values for DATABASE_PASSWORD and FLOWISE_SECRETKEY_OVERWRITE
+docker compose up
+```
+
+> ⚠️ **Production warning:** The default placeholder values in `.env.example` are **not safe for production**. Always override `DATABASE_PASSWORD` and `FLOWISE_SECRETKEY_OVERWRITE` with strong, unique secrets before exposing this service to the internet.
+
+---
+
 ### Maintained by [StackBlaze](https://stackblaze.com)
 
 This template is actively maintained by StackBlaze. We perform **weekly automated checks** to ensure:

@@ -1,15 +1,16 @@
 services:
   flowise:
-    image: flowiseai/flowise:latest
+    image: flowiseai/flowise:3.1.2
     ports:
       - "3000:3000"
     environment:
       - DATABASE_TYPE=postgres
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
-      - DATABASE_NAME=flowise
-      - DATABASE_USER=flowise
-      - DATABASE_PASSWORD=flowise
+      - DATABASE_NAME=${DATABASE_NAME:-flowise}
+      - DATABASE_USER=${DATABASE_USER:-flowise}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD:?DATABASE_PASSWORD must be set — copy .env.example to .env}
+      - FLOWISE_SECRETKEY_OVERWRITE=${FLOWISE_SECRETKEY_OVERWRITE:?FLOWISE_SECRETKEY_OVERWRITE must be set — copy .env.example to .env}
     volumes:
       - flowise_data:/root/.flowise
     depends_on:
@@ -18,12 +19,13 @@ services:
   db:
     image: postgres:16-alpine
     environment:
-      POSTGRES_DB: flowise
-      POSTGRES_USER: flowise
-      POSTGRES_PASSWORD: flowise
+      POSTGRES_DB: ${DATABASE_NAME:-flowise}
+      POSTGRES_USER: ${DATABASE_USER:-flowise}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:?DATABASE_PASSWORD must be set — copy .env.example to .env}
     volumes:
       - db_data:/var/lib/postgresql/data
 
 volumes:
   flowise_data:
   db_data:
+
